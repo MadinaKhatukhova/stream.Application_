@@ -12,6 +12,7 @@ public class Employee {
     static int counter;
     int id;
 
+
     public Employee(String lastName, String firstName, String middleName, int department, float salary) {
         this.lastName = lastName;
         this.firstName = firstName;
