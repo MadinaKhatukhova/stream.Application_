@@ -1,5 +1,5 @@
-package controllers;
 
+package controllers;
 public class Employee {
     public Employee(String capitalize, String capitalize1, int salary, int departmentId) {
     }

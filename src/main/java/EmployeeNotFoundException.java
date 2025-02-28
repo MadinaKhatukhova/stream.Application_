@@ -1,3 +1,4 @@
+
 public class EmployeeNotFoundException extends RuntimeException {
     private static final String DEFAULT_MESSAGE = "Employee not found";
 
