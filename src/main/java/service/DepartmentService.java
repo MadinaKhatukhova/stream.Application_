@@ -1,3 +1,7 @@
+package service;
+
+import controllers.Employee;
+
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +15,8 @@ public interface DepartmentService {
     Map<Integer, List<Employee>> findEmployeesByDepartmentSortedByNameSurname();
 
     Collection<Employee> findEmployeesByDepartmentSortedByNameSurname(int departmentId);
+
+    List<String> usFlatMapTest();
 
 }
 
