@@ -1,8 +1,12 @@
-package controllers;
+package stream.Application.controllers;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import stream.Application.domain.Employee;
+import stream.Application.service.EmployeeService;
+
+import javax.naming.InvalidNameException;
 import java.util.Collection;
 
 
@@ -23,14 +27,14 @@ public class EmployeeController {
 
 
     @GetMapping("/remove")
-    public String remove(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int salary, @RequestParam int department) {
+    public String remove(@RequestParam String firstName, @RequestParam String lastName, @RequestParam int salary, @RequestParam int department) throws InvalidNameException, stream.Application.exception.InvalidNameException {
         Employee result = employeeService.remove(firstName, lastName);
         return generateMessage(result, "удален");
     }
 
 
     @GetMapping("/find")
-    public Employee find(@RequestParam String firstName, @RequestParam String lastName) {
+    public Employee find(@RequestParam String firstName, @RequestParam String lastName) throws stream.Application.exception.InvalidNameException {
         return employeeService.find(firstName, lastName);
     }
 

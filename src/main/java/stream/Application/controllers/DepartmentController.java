@@ -1,12 +1,15 @@
-import controllers.Employee;
+package stream.Application.controllers;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import service.DepartmentService;
+import stream.Application.domain.Employee;
+import stream.Application.service.DepartmentService;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 
 @RestController
@@ -18,7 +21,7 @@ public class DepartmentController {
     public DepartmentController(DepartmentService departmentService) {this.departmentService = departmentService;}
 
     @GetMapping("/max-salary")
-    public Employee getEmployeeWithMaxSalaryByDepartmentId(@RequestParam int departmentId) {
+    public Optional<Employee> getEmployeeWithMaxSalaryByDepartmentId(@RequestParam int departmentId) {
         return departmentService.findEmployeeWithMaxSalary(departmentId);
     }
 

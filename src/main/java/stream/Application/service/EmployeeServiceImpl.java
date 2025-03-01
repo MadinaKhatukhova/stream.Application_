@@ -1,14 +1,15 @@
-package service;
-import controllers.Employee;
+package stream.Application.service;
+import stream.Application.domain.Employee;
 import org.springframework.stereotype.Service;
+import stream.Application.exception.EmployeeExistsException;
+import stream.Application.exception.EmployeeNotFoundException;
+import stream.Application.exception.InvalidNameException;
 
-import javax.naming.InvalidNameException;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-import static org.apache.tomcat.util.IntrospectionUtils.capitalize;
 import static org.apache.tomcat.util.http.parser.HttpParser.isAlpha;
 
 @Service
@@ -35,7 +36,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee remove(String firstName, String lastName) throws InvalidNameException, EmployeeNotFoundException {
+    public Employee remove(String firstName, String lastName) throws javax.naming.InvalidNameException, InvalidNameException {
+        validateNames(firstName, lastName);
+
+        if (!employees.containsKey(getKey(firstName, lastName))) {
+            throw new InvalidNameException();
+        }
+
+        return employees.remove(getKey(firstName, lastName));
+    }
+
+    public Employee find(String firstName, String lastName) throws InvalidNameException {
         validateNames(firstName, lastName);
 
         if (!employees.containsKey(getKey(firstName, lastName))) {
@@ -54,12 +65,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     private void validateNames(String... names) throws InvalidNameException {
         for (String name : names) {
             if (!isAlpha(Integer.parseInt(name))) {
-                throw new InvalidNameException(name);
+                throw new InvalidNameException();
             }
         }
     }
 
-    private String getKey(String firstNae, String lastName) {
-        String firstName = "";
+    private String getKey(String firstName, String lastName) {
         return (firstName + " " + lastName).toLowerCase();}
 }
