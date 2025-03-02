@@ -31,5 +31,5 @@ build/
 
 ### VS Code ###
 .vscode/
-/src/main/java/stream/Application/
-/src/main/java/stream/Application/
+/src/main/java/stream/application/
+/src/main/java/stream/application/

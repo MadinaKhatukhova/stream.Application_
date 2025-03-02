@@ -1,19 +1,19 @@
-package stream.Application.service;
+package stream.application.service;
 
-import stream.Application.domain.Employee;
-import stream.Application.exception.EmployeeExistsException;
-import stream.Application.exception.InvalidNameException;
+import org.springframework.stereotype.Service;
+import stream.application.domain.Employee;
+import stream.application.exception.EmployeeExistsException;
+import stream.application.exception.InvalidNameException;
 
 import java.util.*;
 
-import static java.util.Comparator.comparing;
 import static java.util.Comparator.comparingInt;
-import static java.util.stream.Collectors.groupingBy;
 
+
+@Service
 public class DepartmentServiceImpl implements DepartmentService {
 
     private final EmployeeService employeeService;
-
 
     @Override
     public Optional<Employee> findEmployeeWithMaxSalary(int departmentId) {
@@ -96,4 +96,5 @@ public class DepartmentServiceImpl implements DepartmentService {
         return employeeService.find(firstName, lastName);
 
     }
+
 }

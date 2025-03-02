@@ -1,5 +1,5 @@
 
-package stream.Application.domain;
+package stream.application.domain;
 
 import java.util.Arrays;
 import java.util.Objects;
@@ -15,6 +15,7 @@ public class Employee {
     float salary;
     static int counter;
     int id;
+    private String александров;
 
 
     public Employee(String lastName, String firstName, int department, float salary) {
@@ -27,6 +28,12 @@ public class Employee {
         this.id = ++counter;
     }
 
+    public Employee(String иван, String иванов, String number, String number1) {
+    }
+
+    public Employee(String александров, String александр, String александрович, int i, int i1) {
+        this.александров = александров;
+    }
 
     @Override
     public boolean equals(Object o) {

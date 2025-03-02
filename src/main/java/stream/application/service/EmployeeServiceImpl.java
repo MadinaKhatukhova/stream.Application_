@@ -1,9 +1,9 @@
-package stream.Application.service;
-import stream.Application.domain.Employee;
+package stream.application.service;
+import stream.application.domain.Employee;
 import org.springframework.stereotype.Service;
-import stream.Application.exception.EmployeeExistsException;
-import stream.Application.exception.EmployeeNotFoundException;
-import stream.Application.exception.InvalidNameException;
+import stream.application.exception.EmployeeExistsException;
+import stream.application.exception.EmployeeNotFoundException;
+import stream.application.exception.InvalidNameException;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -72,4 +72,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     private String getKey(String firstName, String lastName) {
         return (firstName + " " + lastName).toLowerCase();}
+
 }
+

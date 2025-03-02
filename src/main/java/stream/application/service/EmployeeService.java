@@ -1,11 +1,12 @@
-package stream.Application.service;
-import stream.Application.domain.Employee;
-import stream.Application.exception.EmployeeExistsException;
-import stream.Application.exception.InvalidNameException;
+package stream.application.service;
+import org.springframework.stereotype.Service;
+import stream.application.domain.Employee;
+import stream.application.exception.EmployeeExistsException;
+import stream.application.exception.InvalidNameException;
 
-import java.util.Collection;
+import java.util.*;
 
-
+@Service
 public interface EmployeeService {
 
     Employee add(String firstName, String LastName, int salary, int departmentId) throws EmployeeExistsException;
@@ -15,4 +16,6 @@ public interface EmployeeService {
     Collection<Employee> findAll();
 
     Employee find(String firstName, String lastName) throws InvalidNameException;
+
+
 }

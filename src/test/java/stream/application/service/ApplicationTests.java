@@ -1,4 +1,4 @@
-package sky.pro.stream.Application;
+package stream.application.service;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest

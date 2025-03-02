@@ -1,8 +1,7 @@
-package stream.Application.exception;
+package stream.application.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
-import stream.Application.domain.Employee;
 
 @ResponseStatus(HttpStatus.BAD_REQUEST)
 public class EmployeeExistsException extends RuntimeException {
