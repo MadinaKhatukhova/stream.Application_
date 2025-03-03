@@ -37,20 +37,7 @@ public class DepartmentServiceImpl implements DepartmentService {
         this.employeeService = employeeService;
     }
 
-    @Override
-    public int hashCode() {
-        return super.hashCode();
-    }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
 
 
     @Override
@@ -73,28 +60,6 @@ public class DepartmentServiceImpl implements DepartmentService {
         return List.of();
     }
 
-    @Override
-    public String toString() {
-        return "DepartmentServiceImpl{" +
-                "employeeService=" + employeeService +
-                '}';
-    }
 
-    public Employee add(String firstName, String LastName, int salary, int departmentId) throws EmployeeExistsException {
-        return employeeService.add(firstName, LastName, salary, departmentId);
-    }
-
-    public Employee remove(String firstName, String LastName) throws javax.naming.InvalidNameException, InvalidNameException {
-        return employeeService.remove(firstName, LastName);
-    }
-
-    public Collection<Employee> findAll() {
-        return employeeService.findAll();
-    }
-
-    public Employee find(String firstName, String lastName) throws InvalidNameException {
-        return employeeService.find(firstName, lastName);
-
-    }
 
 }
